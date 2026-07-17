@@ -3,3 +3,4 @@ pv <img width="1027" height="303" alt="image" src="https://github.com/user-attac
 memoty instruction <img width="1624" height="283" alt="image" src="https://github.com/user-attachments/assets/7b205f7b-b4fd-4018-b915-5f24319bce01" />
 registers : <img width="1608" height="401" alt="image" src="https://github.com/user-attachments/assets/85346a85-50a9-46ca-afe1-57fbc6119eb3" />
 
+ALU  <img width="1607" height="248" alt="image" src="https://github.com/user-attachments/assets/bcb73ce9-21a2-48bf-92b4-8f472abd4a2d" />

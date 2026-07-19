@@ -106,3 +106,37 @@ During the SW instruction, mem_write is asserted and 000F is written into Memory
 During the LW instruction, mem_read is asserted and the stored value (000F) is read back into register R4.
 The waveform confirms correct operation of the data memory, memory control signals, and write-back path.
 
+# test 3 
+
+E085
+E105
+C287
+E181
+E18F 
+
+| Hex  | Instruction   |
+| ---- | ------------- |
+| E085 | addi r1,r0,5  |
+| E105 | addi r2,r0,5  |
+| C287 | beq r1,r2,1   |
+| E181 | addi r3,r0,1  |
+| E18F | addi r3,r0,15 |
+
+<img width="1592" height="473" alt="image" src="https://github.com/user-attachments/assets/a21ebbc9-139f-4e0d-ade2-6dd38d22019a" />
+
+## Branch Instruction Verification
+
+| PC (Hex) | Instruction (Hex) | Assembly Instruction | Expected Result |
+|----------|-------------------|----------------------|-----------------|
+| 0x0000 | E085 | addi r1,r0,5 | R1 = 0005 |
+| 0x0002 | E105 | addi r2,r0,5 | R2 = 0005 |
+| 0x0004 | C287 | beq r1,r2,1 | Branch Taken |
+| 0x0014 | 0000 | Branch Target | PC Updated |
+
+
+Waveform Observation
+Register R1 and R2 are initialized with the value 0005.
+The ALU compares both registers using subtraction and produces 0000.
+The Zero flag is asserted, indicating the operands are equal.
+The Control Unit asserts the Branch signal for the BEQ instruction.
+The Program Counter selects the computed branch address (pc_next) instead of the sequential address (PC + 2), confirming correct branch execution.

@@ -1,0 +1,25 @@
+# Vivado
+
+*.jou
+*.log
+*.str
+*.pb
+*.wdb
+*.wcfg
+
+.cache/
+.hw/
+.ip_user_files/
+.runs/
+.sim/
+.Xil/
+
+*.backup
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/

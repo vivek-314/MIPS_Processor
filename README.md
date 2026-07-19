@@ -342,3 +342,7 @@ The current implementation is a complete single-cycle processor. Possible future
 ---
 
 
+# References
+
+David A. Patterson and John L. Hennessy, **Computer Organization and Design: The Hardware/Software Interface**, Morgan Kaufmann.
+

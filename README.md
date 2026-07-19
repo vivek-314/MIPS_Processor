@@ -50,45 +50,6 @@ Main datapath components include:
 - Data Memory
 - Write-back Multiplexer
 
-> **Insert Datapath Diagram Here**
-
-```
-<img width="1665" height="945" alt="image" src="https://github.com/user-attachments/assets/6d6c7f5e-3251-4698-a50a-37f55e47cd88" />
-
-```
-
----
-
-# Project Structure
-
-```
-MIPS_Processor
-│
-├── src/
-│   ├── alu.v
-│   ├── alu_control.v
-│   ├── control_unit.v
-│   ├── data_memory.v
-│   ├── instruction_memory.v
-│   ├── mips_processor.v
-│   ├── pc.v
-│   ├── register.v
-│   └── sign_extend.v
-│
-├── simulation/
-│   ├── mips_processor_tb.v
-│   ├── program.mem
-│   └── waves.tcl
-│
-├── screenshots/
-│
-├── README.md
-├── LICENSE
-└── .gitignore
-```
-
----
-
 # Module Description
 
 ## Program Counter
@@ -217,37 +178,36 @@ Each processor component was verified independently before full system integrati
 
 | Module | Status |
 |---------|--------|
-| Program Counter | ✅ |
-| Register File | ✅ |
-| Instruction Memory | ✅ |
-| Data Memory | ✅ |
-| Sign Extension | ✅ |
-| ALU | ✅ |
-| ALU Control | ✅ |
-| Control Unit | ✅ |
-| Complete Processor | ✅ |
+| Program Counter  |
+| Register File |
+| Instruction Memory | 
+| Data Memory |
+| Sign Extension | 
+| ALU |
+| ALU Control | 
+| Control Unit |
+| Complete Processor |
 
 ---
 
 # Functional Verification
 
-## Arithmetic Instructions
-
-Verified:
-
-- ADD
-- SUB
-- AND
-- OR
-- SLT
-- ADDI
+## Arithmetic Instructions 
 
 **Waveform**
 
 ```
-screenshots/arithmetic_test.png
+<img width="1597" height="358" alt="image" src="https://github.com/user-attachments/assets/67bc771b-9a85-4835-9e00-76ec4ef80391" />
 ```
-
+| PC (Hex) | Instruction (Hex) | Assembly Instruction | Expected ALU Result | Register Updated |
+| :------: | :---------------: | -------------------- | :-----------------: | :--------------: |
+| `0x0000` |       `E085`      | `addi r1, r0, 5`     |        `0005`       |    `R1 = 0005`   |
+| `0x0002` |       `E10A`      | `addi r2, r0, 10`    |        `000A`       |    `R2 = 000A`   |
+| `0x0004` |       `0530`      | `add r3, r1, r2`     |        `000F`       |    `R3 = 000F`   |
+| `0x0006` |       `0531`      | `sub r3, r1, r2`     |     `FFFB` (-5)     |    `R3 = FFFB`   |
+| `0x0008` |       `0532`      | `and r3, r1, r2`     |        `0000`       |    `R3 = 0000`   |
+| `0x000A` |       `0533`      | `or r3, r1, r2`      |        `000F`       |    `R3 = 000F`   |
+| `0x000C` |       `0534`      | `slt r3, r1, r2`     |        `0001`       |    `R3 = 0001`   |
 ---
 
 ## Memory Instructions

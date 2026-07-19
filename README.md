@@ -13,3 +13,54 @@ alu_control <img width="1593" height="206" alt="image" src="https://github.com/u
 
 
 withput beq  <img width="1603" height="370" alt="image" src="https://github.com/user-attachments/assets/6aa1e1de-7624-4ea6-bae8-7ddee5cf0e36" />
+
+
+test 1 ARITHIMETIC 
+E085
+E10A
+0530
+0561
+0582
+05B3
+05C4
+
+addi r1,r0,5
+addi r2,r0,10
+add  r3,r1,r2
+sub  r3,r1,r2
+and  r3,r1,r2
+or   r3,r1,r2
+slt  r3,r1,r2
+
+simulation result 
+<img width="1597" height="358" alt="image" src="https://github.com/user-attachments/assets/67bc771b-9a85-4835-9e00-76ec4ef80391" />
+| PC (Hex) | Instruction (Hex) | Assembly Instruction | Expected ALU Result | Register Updated |
+| :------: | :---------------: | -------------------- | :-----------------: | :--------------: |
+| `0x0000` |       `E085`      | `addi r1, r0, 5`     |        `0005`       |    `R1 = 0005`   |
+| `0x0002` |       `E10A`      | `addi r2, r0, 10`    |        `000A`       |    `R2 = 000A`   |
+| `0x0004` |       `0530`      | `add r3, r1, r2`     |        `000F`       |    `R3 = 000F`   |
+| `0x0006` |       `0531`      | `sub r3, r1, r2`     |     `FFFB` (-5)     |    `R3 = FFFB`   |
+| `0x0008` |       `0532`      | `and r3, r1, r2`     |        `0000`       |    `R3 = 0000`   |
+| `0x000A` |       `0533`      | `or r3, r1, r2`      |        `000F`       |    `R3 = 000F`   |
+| `0x000C` |       `0534`      | `slt r3, r1, r2`     |        `0001`       |    `R3 = 0001`   |
+
+
+Waveform Observation
+
+The simulation verifies the following:
+
+✅ Program Counter (PC) increments by 2 bytes after each instruction.
+✅ Instruction Memory fetches the correct instruction.
+✅ ALU produces the expected output for each arithmetic operation.
+✅ Write-back data matches the ALU result.
+✅ Register File updates the destination register correctly.
+✅ Zero flag is asserted only when the ALU output equals zero (during the AND operation).
+
+| Instruction | Operation            | 
+| ----------- | -------------------- | 
+| `ADDI`      | Add Immediate        |     
+| `ADD`       | Register Addition    |     
+| `SUB`       | Register Subtraction |     
+| `AND`       | Bitwise AND          |     
+| `OR`        | Bitwise OR           |     
+| `SLT`       | Set Less Than        |     

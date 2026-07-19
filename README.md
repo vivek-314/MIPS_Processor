@@ -341,33 +341,4 @@ The current implementation is a complete single-cycle processor. Possible future
 
 ---
 
-# Author
 
-**Vivek Chaurasia**
-
-B.Tech, Integrated Circuit Design and Technology  
-Indian Institute of Technology Gandhinagar
-
-```
-
----
-
-## I have one suggestion
-
-Instead of simply showing filenames like:
-
-```markdown
-screenshots/jump_test.png
-```
-
-GitHub can display the images directly. Use:
-
-```markdown
-## Jump Instruction Verification
-
-![Jump Waveform](screenshots/jump_test.png)
-```
-
-The same for the other waveform screenshots and your datapath diagram. It makes the README much more engaging and professional.
-
-I also recommend adding a small **processor block diagram** near the top of the README. A clean architecture figure gives readers an immediate understanding of the design and significantly improves the presentation.
